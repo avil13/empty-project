@@ -1,5 +1,5 @@
 {
-    "name": "audio",
+    "name": "empty-project",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -23,7 +23,14 @@
         "gulp-sass": "^2.3.2",
         "gulp-sourcemaps": "^1.6.0"
     },
-    "eslintConfig":{
+    "eslintConfig": {
+        "parserOptions": {
+            "ecmaVersion": 6,
+            "sourceType": "module",
+            "ecmaFeatures": {
+                "jsx": true
+            }
+        },
         "env": {
             "browser": true
         },
