@@ -2,6 +2,10 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
 var path = require('path');
+var devServer = {
+    host: 'localhost',
+    port: 8080
+};
 
 new WebpackDevServer(webpack(config), {
     // proxy: {
@@ -16,14 +20,14 @@ new WebpackDevServer(webpack(config), {
     // }
     contentBase: path.join(__dirname, 'public'),
     hot: false,
-    quiet: false,
+    quiet: true,
     noInfo: false,
     stats: {
         colors: true
     }
-}).listen(config.devServer.port, config.devServer.host, function(err, result) {
+}).listen(devServer.port, devServer.host, function(err, result) {
     if (err) {
         console.log(err);
     }
-    console.log('Listening at ' + config.devServer.host + ':' + config.devServer.port);
+    console.log('Listening at ' + devServer.host + ':' + devServer.port);
 });
