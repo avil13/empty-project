@@ -1,5 +1,7 @@
-export default Lib = {
+let Lib = {
     run(){
-        console.log(`Log ==>  ${ Date.now() }`);
+        console.log(`Log ==>  ${ Date.now() }!!!`);
     }
 };
+
+export default Lib;
