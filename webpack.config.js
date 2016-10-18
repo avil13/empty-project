@@ -20,7 +20,7 @@ module.exports = {
 
     resolve: {
         root: path.join(__dirname, 'src'),
-        extensions: ['', '.js', '.scss']
+        extensions: ['', '.js', '.ts', '.scss']
     },
 
     watch: debug,
@@ -43,6 +43,14 @@ module.exports = {
                         "add-module-exports"
                     ]
                 }
+            },
+            {
+                test: /\.ts$/,
+                loaders: ['awesome-typescript-loader']
+            },
+            {
+                test: /\.html$/,
+                loader: 'html'
             },
             {
                 test: /\.scss$/,

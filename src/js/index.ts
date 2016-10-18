@@ -1,3 +1,5 @@
+/// <reference path="../../typings/index.d.ts" />
+
 import Lib from './lib';
 
 (function (){
