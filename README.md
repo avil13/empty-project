@@ -12,3 +12,9 @@ npm install
 ```
 git checkout webpack
 ```
+
+
+### To use webpack and TypeScript
+```
+git checkout webpack-ts
+```
