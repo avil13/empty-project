@@ -8,7 +8,8 @@
     "wp": "webpack",
     "build": "NODE_ENV=production webpack",
     "start": "webpack-dev-server --inline --progress --port 8080 --content-base ./public",
-    "dev": "webpack-dashboard -- webpack-dev-server --inline --progress --port 8080 --content-base ./public"
+    "dev": "webpack-dashboard -- webpack-dev-server --inline --progress --port 8080 --content-base ./public",
+    "postinstall": "typings install"
   },
   "keywords": [],
   "author": "",
