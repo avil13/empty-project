@@ -4,25 +4,26 @@ var path = require('path');
 var DashboardPlugin = require('webpack-dashboard/plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+
 module.exports = {
 
     // context: path.join(__dirname, "src/js/", 'app.js'),
     entry: [
-        path.join(__dirname, "src/js/index.js"),
-        path.join(__dirname, "src/scss/app.scss")
+        path.join(__dirname, "src/js/index"),
+        path.join(__dirname, "src/scss/app")
     ],
     output: {
-        publicPath: '/',
-        path: path.join(__dirname, 'public/content/js/'),
-        filename: 'app.js'
+        publicPath: '/content/',
+        path: path.join(__dirname, 'public/content/'),
+        filename: 'script.js'
     },
 
     resolve: {
-        root: path.join(__dirname, 'src/js'),
-        extensions: ['', '.js']
+        root: path.join(__dirname, 'src'),
+        extensions: ['', '.js', '.scss']
     },
 
-    watch: false, // debug,
+    watch: debug,
     watchoptions: {
         aggregateTimeout: 100
     },
@@ -45,30 +46,27 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                // include: 'src/scss/app.scss',
-                loaders: ExtractTextPlugin.extract("css?sourceMap!esolve-url!sass?sourceMap")
+                // loaders: ["file?name=style.[ext]", "style", "css", "sass"]
+                loader: ExtractTextPlugin.extract("css!resolve-url!sass?sourceMap")
             },
-            {
+            { // font & img
                 test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
                 include: /\/node_modules\//,
-                loader: 'file?name=[1][name].[ext]&regExp=node_modules/(*)'
+                loader: 'file?name=[1][name].[ext]&regExp=node_modules/(.*)'
             },
-            {
+            { // font & img
                 test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
                 exclude: /\/node_modules\//,
                 loader: 'file?name=[path][name].[ext]'
             }
         ]
     },
-    sassLoader: {
-        includePaths: [path.resolve(__dirname, "./src/scss")]
-    },
 
 
     plugins: debug ? [
-        new ExtractTextPlugin("[name].css")
+        new ExtractTextPlugin("style.css", { allChunks: true })
     ] : [
-        new ExtractTextPlugin("[name].css"),
+        new ExtractTextPlugin("style.css", { allChunks: true }),
         new DashboardPlugin(),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),

@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "wp": "webpack",
     "build": "NODE_ENV=production webpack",
-    "start": "node webpack.server.js",
-    "dev": "webpack-dashboard -- webpack-dev-server -m -c --config ./webpack.config.js"
+    "start": "webpack-dev-server --inline --progress --port 8080 --content-base ./public",
+    "dev": "webpack-dashboard -- webpack-dev-server --inline --progress --port 8080 --content-base ./public"
   },
   "keywords": [],
   "author": "",
@@ -23,10 +23,16 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "babel-runtime": "^6.11.6",
+    "css-loader": "^0.25.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.22.0",
     "node-sass": "^3.10.1",
+    "null-loader": "^0.1.1",
+    "raw-loader": "^0.5.1",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dashboard": "^0.2.0",
     "webpack-dev-server": "^1.14.1"
