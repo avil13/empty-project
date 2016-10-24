@@ -20,7 +20,7 @@ module.exports = {
 
     resolve: {
         root: path.join(__dirname, 'src'),
-        extensions: ['', '.js', '.scss']
+        extensions: ['', '.js', '.jsx', '.scss']
     },
 
     watch: debug,
@@ -34,27 +34,23 @@ module.exports = {
     module: {
         loaders: [ //
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel',
+                loader: 'babel-loader',
                 query: {
-                    presets: ['es2015', 'stage-0'],
-                    plugins: [
-                        "add-module-exports"
-                    ]
+                    presets: ['react', 'es2015', 'stage-0'],
+                    plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy', 'add-module-exports'],
+
                 }
-            },
-            {
+            }, {
                 test: /\.scss$/,
                 // loaders: ["file?name=style.[ext]", "style", "css", "sass"]
                 loader: ExtractTextPlugin.extract("css!resolve-url!sass?sourceMap")
-            },
-            { // font & img
+            }, { // font & img
                 test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
                 include: /\/node_modules\//,
                 loader: 'file?name=[1][name].[ext]&regExp=node_modules/(.*)'
-            },
-            { // font & img
+            }, { // font & img
                 test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
                 exclude: /\/node_modules\//,
                 loader: 'file?name=[path][name].[ext]'
@@ -64,9 +60,13 @@ module.exports = {
 
 
     plugins: debug ? [
-        new ExtractTextPlugin("style.css", { allChunks: true })
+        new ExtractTextPlugin("style.css", {
+            allChunks: true
+        })
     ] : [
-        new ExtractTextPlugin("style.css", { allChunks: true }),
+        new ExtractTextPlugin("style.css", {
+            allChunks: true
+        }),
         new DashboardPlugin(),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
