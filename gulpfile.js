@@ -66,8 +66,8 @@ gulp.task('serve', ['js', 'css'], tasks.serve);
 
 
 gulp.task('watch', ['js', 'css', 'serve'], function() {
-    gulp.watch(src.js, ['js-watch']);
-    gulp.watch(src.css, ['css-watch']);
+    gulp.watch('src/**/*.js', ['js-watch']);
+    gulp.watch('src/scss/**/*.scss', ['css-watch']);
     gulp.watch('public/**/*.html', reload);
 });
 
