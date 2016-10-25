@@ -52,6 +52,7 @@ inquirer.prompt([{
                 'component',
                 'page',
                 'action',
+                'store',
                 new inquirer.Separator()
             ],
             filter: function(val) {
@@ -76,9 +77,12 @@ inquirer.prompt([{
             case 'action':
                 _p += 'actions/';
                 break;
+            case 'store':
+                _p += 'stores/';
+                break;
         }
 
-        _p += changeCase.paramCase(answers['el_name']);
+        // _p += changeCase.paramCase(answers['el_name']);
 
         helper.make(
             _p, 
@@ -107,7 +111,10 @@ export default class ${name} extends React.Component {
             <h1>Hello from ${name}</h1>
         );
     }
-};
-        `
+
+    // componentDidMount(){}
+    // componentWillMount(){}
+    // componentWillUnmount(){}
+};`
     }
 };
