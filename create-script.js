@@ -4,7 +4,6 @@ var inquirer = require('inquirer');
 var changeCase = require('change-case')
 
 
-// fs.writwriteFileSynceFile(filename, data);
 
 var helper = {
     // создание директории
@@ -29,10 +28,12 @@ var helper = {
         }
     },
     // создание файла
-    make: function(path, file, data) {
-        file = changeCase.paramCase(file);
+    make: function(_path, filename, data) {
+        filename = changeCase.paramCase(filename) + '.jsx';
 
-        this._mkdirSync(path);
+        this._mkdirSync(_path);
+
+        fs.writeFileSync(path.join(_path, filename), data);
     }
 };
 
@@ -79,7 +80,11 @@ inquirer.prompt([{
 
         _p += changeCase.paramCase(answers['el_name']);
 
-        helper.make(_p, answers['el_name'], _src[answers['el_type']]);
+        helper.make(
+            _p, 
+            answers['el_name'], 
+            _src[answers['el_type']](answers['el_name'])
+            );
     })
     .then(function(data) {
 
@@ -99,7 +104,7 @@ import React from "react";
 export default class ${name} extends React.Component {
     render() {
         return (
-            <h1>Hello world</h1>
+            <h1>Hello from ${name}</h1>
         );
     }
 };
