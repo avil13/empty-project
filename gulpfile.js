@@ -23,9 +23,9 @@ tasks.js = function(done) {
             errorHandler: $.notify.onError("Error:\n<%= error %>")
         }))
         .pipe($.sourcemaps.init())
-        .pipe($.concat('app.js'))
+        .pipe($.concat('script.js'))
         .pipe($.sourcemaps.write('./'))
-        .pipe(gulp.dest('public/content/js/'));
+        .pipe(gulp.dest('public/content/'));
 };
 
 tasks.css = function(done) {
@@ -37,9 +37,9 @@ tasks.css = function(done) {
         .pipe($.sass({
             errLogToConsole: true
         }))
-        .pipe($.concat('app.css'))
+        .pipe($.concat('style.css'))
         .pipe($.sourcemaps.write('./'))
-        .pipe(gulp.dest('public/content/css/'));
+        .pipe(gulp.dest('public/content/'));
 };
 
 tasks.serve = function(done) {
