@@ -1,0 +1,89 @@
+.-block-fix {
+    box-sizing: border-box;
+    left: 50%;
+    margin-left: -40%;
+    position: fixed;
+    top: 2%;
+    width: 80%;
+    z-index: 9999;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.-mess {
+    width: 100%;
+    border: 1px solid #523;
+    padding: 0.6rem;
+    box-sizing: border-box;
+    margin-bottom: 0.1rem;
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    /**/
+    -webkit-box-shadow: 1px 3px 8px 1px rgba(3, 3, 3, .4);
+    box-shadow: 1px 3px 8px 1px rgba(3, 3, 3, .4);
+    /**/
+    display: block;
+    /**/
+    animation-duration: .35s;
+    animation-fill-mode: both;
+    /**/
+    animation-name: fadeInDown;
+}
+
+.-mess.-out{
+    animation-name: fadeOutUp;
+}
+
+.-mess>.text {
+    white-space: pre-line;
+}
+
+.-mess>.-close {
+    color: #444;
+    position: absolute;
+    right: 0.4rem;
+    top: 0.2rem;
+    cursor: pointer;
+    text-shadow: 0 1px 0 #fff;
+    font-size: 1.2rem;
+}
+
+.-mess.info {
+    color: #31708f;
+    border-color: #bce8f1;
+    background-color: rgba(217, 237, 247, 0.9);
+}
+
+.-mess.success {
+    color: #3c763d;
+    border-color: #d6e9c6;
+    background-color: rgba(223, 240, 216, 0.9);
+    /*background-color: #299d37;*/
+}
+
+.-mess.error {
+    color: #a94442;
+    border-color: #ebccd1;
+    background-color: rgba(242, 222, 222, 0.9);
+}

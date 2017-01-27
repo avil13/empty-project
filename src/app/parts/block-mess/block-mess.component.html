@@ -1,0 +1,6 @@
+<div class="-block-fix">
+    <div class="-mess" [ngClass]="m.type" *ngFor="let m of mess">
+        <span (click)="close(m)" class="-close" aria-hidden="true">&#215;</span>
+        <p class="text">{{ m.text }}</p>
+    </div>
+</div>
