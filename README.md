@@ -1,11 +1,6 @@
 # empty-project
 quick start developing a simple front-end application
 
-```
-git clone https://github.com/avil13/empty-project.git
-cd empty-project
-npm install
-```
 
 
 ### To use webpack
@@ -23,3 +18,10 @@ git checkout webpack-react
 ```
 git checkout webpack-ts
 ```
+
+
+### If You need angular2 + ngrx/store + bootstrap3
+```
+git checkout anguar-cli_ng-redux
+```
+
