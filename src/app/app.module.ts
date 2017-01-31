@@ -38,7 +38,9 @@ import { NavComponent } from './parts/nav/nav.component';
         BrowserModule,
         FormsModule,
         HttpModule,
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes),
+        StoreModule.provideStore(storeReducer, INITIAL_STATE),
+        StoreDevtoolsModule.instrumentOnlyWithExtension()
     ],
     providers: [
         ApiService,
