@@ -2,7 +2,7 @@
     "name": "a2-empty",
     "version": "0.0.0",
     "license": "MIT",
-    "main": "index.ts",
+    "main": "src/a2/index.ts",
     "angular-cli": {},
     "scripts": {
         "ng": "ng",
