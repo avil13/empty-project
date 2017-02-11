@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     background-color: #222;
-    background-image: url(/assets/dark_wall.png);
+    background-image: url(assets/dark_wall.png);
     padding-top: 10px;
     padding: 2rem;
 }
@@ -128,6 +128,6 @@ pre[lg]:before {
     width: 32px;
     height: 32px;
     cursor: pointer;
-    background-image: url(/assets/PNG/GitHub-Mark-Light-32px.png);
+    background-image: url(assets/PNG/GitHub-Mark-Light-32px.png);
     background-repeat: no-repeat;
 }
